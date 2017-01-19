@@ -1,0 +1,46 @@
+module.exports = [
+    {
+        "name":"新约",
+        "items":[
+            {"name":"马太福音","number":30},
+            {"name":"马可福音","number":6},
+            {"name":"路加福音","number":7},
+            {"name":"马太福音","number":5},
+            {"name":"马可福音","number":6},
+            {"name":"路加福音","number":7},
+            {"name":"马太福音","number":5},
+            {"name":"马可福音","number":6},
+            {"name":"路加福音","number":7},
+            {"name":"马太福音","number":5},
+            {"name":"马可福音","number":6},
+            {"name":"路加福音","number":7},
+            {"name":"马太福音","number":5},
+            {"name":"马可福音","number":6},
+            {"name":"路加福音","number":7},
+            {"name":"马太福音","number":5},
+            {"name":"马可福音","number":6},
+            {"name":"路加福音","number":7},
+            {"name":"马太福音","number":5},
+            {"name":"马可福音","number":6},
+            {"name":"路加福音","number":7},
+            {"name":"马太福音","number":5},
+            {"name":"马可福音","number":6},
+            {"name":"路加福音","number":7},
+            {"name":"马太福音","number":5},
+            {"name":"马可福音","number":6},
+            {"name":"路加福音","number":7},
+            {"name":"马太福音","number":5},
+            {"name":"马可福音","number":6},
+            {"name":"路加福音","number":7},
+            
+        ]
+    },
+    {
+        "name":"旧约",
+        "items":[
+            {"name":"创世纪","number":5},
+            {"name":"出埃及记","number":6},
+            {"name":"利未记","number":7},
+        ]
+    }
+];

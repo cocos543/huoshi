@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="view">
+  <!--<view>书：</view>-->
+  <view class="bookTab">
+    <view class="{{activeBook === index ? 'bookTab-btn active' : 'bookTab-btn'}}" bindtap="handleChangeBook" wx:key="name" data-book="{{index}}" wx:for="{{chapter}}">{{item.name}}</view>
+  </view>
+
+  <!--<view>章节：</view>-->
+  <view class="chapterList">
+    <view class="{{activeChapter == index ? 'chapterItem active' : 'chapterItem'}}" wx:key="index" wx:for="{{chapter[activeBook].items}}" bindtap="handleActiveChapter" data-chapter="{{index}}">
+    {{item['name']}}
+    </view>
+  </view>
+
+  <view class="sectionList" wx:if="{{activeChapter !== null}}">
+    <!--<view>小节：</view>-->
+    <view class="sectionItem" wx:key="{{index}}" wx:for="{{sectionModel}}">{{index + 1}}</view>
+  </view>
+  
+</view>
