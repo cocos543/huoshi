@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="view">
+  isNew: {{isNew}};
+  volumeId: {{volumeId}};
+  section: {{section}};
+</view>

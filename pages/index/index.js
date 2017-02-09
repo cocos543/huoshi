@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 let chapter = require('./chapter');
+var util = require('../../utils/util.js')
 let app = getApp();
 Page({
   data: {
@@ -30,9 +31,15 @@ Page({
     }else{
       this.setData({
         activeChapter,
-        sectionModel : this.formatChapterArray(this.data.chapter[this.data.activeBook].items[activeChapter].number)
+        sectionModel : this.formatChapterArray(this.data.chapter[this.data.activeBook].items[activeChapter].chapter_number)
       });
     }
+  },
+  handleGoToSection : function(event){
+    let data = this.data.chapter[this.data.activeBook].items[this.data.activeChapter]
+    wx.navigateTo({
+      url: '../section/section?section='+ event.target.dataset.section + '&isNew=' + data.is_new + '&volumeId=' + data.volume_id
+    })
   },
   formatChapterArray : function(n){
     let arr = new Array(n);
@@ -45,5 +52,50 @@ Page({
     console.log(str)
     return 'txt'
     // return '<view>' + str.substring(0,1)+ '</view>';
+  },
+  formatChapter : function(data){
+    let res = [
+      {
+          "name":"新约",
+          "items":[]
+      },
+      {
+          "name":"旧约",
+          "items":[]
+      }
+    ];
+
+    for(let  i=0; i<data.length; i++){
+      let item = data[i];
+      if(item.is_new){
+        res[0].items.push(item);
+      }else{
+        res[1].items.push(item);
+      }
+    }
+
+    console.log(res)
+
+    return res
+  },
+  onLoad : function(){
+
+    this.setData({
+        chapter : this.formatChapter(chapter),
+    });
+    
+    // wx.request({
+    //     url:"https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/volume",
+    //     header:{
+    //        // "Content-Type":"application/json"
+    //     },
+    //     success:function(res){
+    //         console.log(res.data)
+    //     },
+    //     fail:function(err){
+    //         console.log(err)
+    //     }
+
+    // })
   }
-});
+})

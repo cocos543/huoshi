@@ -1,0 +1,59 @@
+/**index.wxss**/
+.view{
+    padding-bottom: 19rpx;
+}
+.bookTab{
+    width: 100%; 
+    text-align: center;
+    margin-top: 5rpx;
+}
+.bookTab-btn{
+    display: inline-block;
+    font-size: 26rpx; 
+    line-height: 64rpx; 
+    color: #9b9b9b;
+    padding: 0 24rpx; 
+    border-bottom: 5rpx solid transparent; 
+}
+.bookTab-btn.active{
+    color: #65c6eb; 
+    border-bottom-color: #65c6eb
+}
+.chapterList{
+    text-align: center; margin-top: 5rpx;
+}
+.chapterItem{
+    display: inline-block;
+    width: 225rpx;
+    height: 58rpx;
+    line-height: 58rpx;
+    text-align: left;
+    padding-left: 30rpx;
+    font-size: 24rpx;
+    margin: 19rpx 9rpx 0 9rpx;
+    background: #fff;
+    box-sizing: border-box;
+    color: #4c4c4c;
+}
+.sectionList{
+    width: 704rpx;
+    background: #fff;
+    margin: 19rpx auto 0 auto;
+    padding: 10rpx 40rpx;
+    box-sizing: border-box;
+}
+.chapterItem.active{
+    background: #e6e6e6;
+}
+.sectionItem{
+    width: 52rpx; 
+    height: 52rpx; 
+    line-height: 52rpx;
+    display: inline-block;
+    color: #333;
+    border: 1px solid #e8e8e8;
+    border-radius: 50%;
+    text-align: center;
+    margin: 10rpx;
+    font-size: 22rpx;
+}
