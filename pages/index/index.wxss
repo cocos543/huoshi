@@ -47,7 +47,8 @@
 }
 .chapterItem-header{
     display: inline;
-    font-size: 32rpx;
+    font-size: 34rpx;
+    font-weight: bold;
 }
 .sectionItem{
     width: 52rpx; 
