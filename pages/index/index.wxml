@@ -1,20 +1,27 @@
-<!--index.wxml-->
 <view class="view">
-  <!--<view>书：</view>-->
+
+  <!--书-->
   <view class="bookTab">
     <view class="{{activeBook === index ? 'bookTab-btn active' : 'bookTab-btn'}}" bindtap="handleChangeBook" wx:key="name" data-book="{{index}}" wx:for="{{chapter}}">{{item.name}}</view>
   </view>
 
-  <!--<view>章节：</view>-->
+  <!--章节-上-->
   <view class="chapterList">
-    <view class="{{activeChapter == index ? 'chapterItem active' : 'chapterItem'}}" wx:key="index" wx:for="{{chapter[activeBook].items}}" bindtap="handleActiveChapter" data-chapter="{{index}}">
+    <view class="{{chapter[activeBook].items[activeChapter].volume_id === item.volume_id ? 'chapterItem active' : 'chapterItem'}}" wx:key="volume_id" wx:for="{{chapterTop}}" bindtap="handleActiveChapter" data-chapter="{{index}}">
     <view class="chapterItem-header">{{item.name1}}</view>{{item.name2}}
     </view>
   </view>
 
+  <!--小节-->
   <view class="sectionList" wx:if="{{activeChapter !== null}}">
-    <!--<view>小节：</view>-->
     <view class="sectionItem" wx:key="{{index}}" wx:for="{{sectionModel}}" data-section="{{index+1}}" bindtap="handleGoToSection">{{index + 1}}</view>
+  </view>
+
+  <!--章节-下-->
+  <view class="chapterList">
+    <view class="{{chapter[activeBook].items[activeChapter].volume_id === item.volume_id ? 'chapterItem active' : 'chapterItem'}}" wx:key="{{item.volume_id}}" wx:for="{{chapterBottom}}" bindtap="handleActiveChapter" data-chapter="{{index + chapterTop.length}}">
+    <view class="chapterItem-header">{{item.name1}}</view>{{item.name2}}
+    </view>
   </view>
   
 </view>

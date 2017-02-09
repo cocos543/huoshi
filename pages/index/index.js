@@ -6,7 +6,9 @@ let app = getApp();
 Page({
   data: {
     chapter, //章节数据
-    activeBook : 1, //0:旧约, 1:新约
+    chapterTop : [],
+    chapterBottom : [],
+    activeBook : 0, //0:旧约, 1:新约
     activeChapter : null, //当前展开的章节
     sectionModel : [], //当前展开章节的小节模型
     
@@ -16,22 +18,29 @@ Page({
     if(activeBook !== this.data.activeBook){
       this.setData({
         activeBook,
-        activeChapter:null
+        activeChapter:null,
+        chapterTop : this.data.chapter[activeBook].items,
+        chapterBottom : []
       })
     }
   },
   handleActiveChapter : function(event){
     let activeChapter = event.target.dataset.chapter;
-
+    let chapter = this.data.chapter[this.data.activeBook].items;
     if(activeChapter === this.data.activeChapter && activeChapter !== null){
       this.setData({
         activeChapter:null,
-        sectionModel:[]
+        sectionModel:[],
+        chapterTop : chapter,
+        chapterBottom : []
       });
     }else{
+      let divIndex = Math.ceil((activeChapter + 1) / 3)*3;
       this.setData({
         activeChapter,
-        sectionModel : this.formatChapterArray(this.data.chapter[this.data.activeBook].items[activeChapter].chapter_number)
+        sectionModel : this.formatChapterArray(chapter[activeChapter].chapter_number),
+        chapterTop : chapter.slice(0,divIndex),
+        chapterBottom : chapter.slice(divIndex)
       });
     }
   },
@@ -40,7 +49,7 @@ Page({
 
     wx.navigateTo({
       url: '../section/section?section='+ event.target.dataset.section + '&name=' + data.full_name + '&volumeId=' + data.volume_id
-    })
+    });
   },
   formatChapterArray : function(n){
     let arr = new Array(n);
@@ -75,9 +84,10 @@ Page({
     return res
   },
   onLoad : function(){
-
+    let data = this.formatChapter(chapter);
     this.setData({
-        chapter : this.formatChapter(chapter),
+        chapter : data,
+        chapterTop : data[this.data.activeBook].items
     });
     
     // wx.request({
