@@ -23,5 +23,7 @@
     <view class="chapterItem-header">{{item.name1}}</view>{{item.name2}}
     </view>
   </view>
-  
+
+  <!--公告-->
+  <view class="{{notice ? 'notice' : ''}}" >{{notice}}</view>
 </view>

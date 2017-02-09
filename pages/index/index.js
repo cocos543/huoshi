@@ -11,6 +11,7 @@ Page({
     activeBook : 0, //0:旧约, 1:新约
     activeChapter : null, //当前展开的章节
     sectionModel : [], //当前展开章节的小节模型
+    message : ''
     
   },
   handleChangeBook : function(event){
@@ -89,6 +90,24 @@ Page({
         chapter : data,
         chapterTop : data[this.data.activeBook].items
     });
+
+    // 获取公告
+    wx.request({
+        url:"https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/notice",
+        success: (res)=>{
+          
+          if(res.data.code === 200){
+            this.setData({
+                notice : res.data.data.notice,
+            });
+          }
+          
+        },
+        fail:function(err){
+            console.log(err)
+        }
+
+    })
     
     // wx.request({
     //     url:"https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/volume",

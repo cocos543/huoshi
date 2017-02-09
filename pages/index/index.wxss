@@ -62,3 +62,11 @@
     margin: 10rpx;
     font-size: 22rpx;
 }
+
+.notice{
+    font-size: 26rpx;
+    margin: 30rpx 24rpx;
+    background: #fff;
+    line-height: 40rpx;
+    padding: 20rpx 24rpx;
+}
