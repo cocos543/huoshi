@@ -8,7 +8,7 @@
   <!--<view>章节：</view>-->
   <view class="chapterList">
     <view class="{{activeChapter == index ? 'chapterItem active' : 'chapterItem'}}" wx:key="index" wx:for="{{chapter[activeBook].items}}" bindtap="handleActiveChapter" data-chapter="{{index}}">
-    {{item['full_name']}}
+    <view class="chapterItem-header">{{item.name1}}</view>{{item.name2}}
     </view>
   </view>
 

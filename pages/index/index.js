@@ -48,29 +48,26 @@ Page({
     }
     return arr;
   },
-  formatChapterText : function(str){
-    console.log(str)
-    return 'txt'
-    // return '<view>' + str.substring(0,1)+ '</view>';
-  },
   formatChapter : function(data){
     let res = [
       {
-          "name":"新约",
+          "name":"旧约",
           "items":[]
       },
       {
-          "name":"旧约",
+          "name":"新约",
           "items":[]
       }
     ];
 
     for(let  i=0; i<data.length; i++){
       let item = data[i];
+      item.name1 = item.full_name.substr(0,1);
+      item.name2 = item.full_name.substr(1);
       if(item.is_new){
-        res[0].items.push(item);
-      }else{
         res[1].items.push(item);
+      }else{
+        res[0].items.push(item);
       }
     }
 

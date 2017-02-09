@@ -45,6 +45,10 @@
 .chapterItem.active{
     background: #e6e6e6;
 }
+.chapterItem-header{
+    display: inline;
+    font-size: 32rpx;
+}
 .sectionItem{
     width: 52rpx; 
     height: 52rpx; 
