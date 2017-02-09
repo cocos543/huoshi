@@ -1,6 +1,10 @@
 <!--index.wxml-->
 <view class="view">
-  isNew: {{isNew}};
+  <!--isNew: {{isNew}};
   volumeId: {{volumeId}};
-  section: {{section}};
+  section: {{section}};-->
+  <view class="lection" wx:key="name" wx:for="{{data}}">
+    <view class="lection-index">{{item.verse_no}}</view>
+    <view class="lection-text">{{item.lection}}</view>
+  </view>
 </view>

@@ -14,7 +14,7 @@
 
   <view class="sectionList" wx:if="{{activeChapter !== null}}">
     <!--<view>小节：</view>-->
-    <view class="sectionItem" wx:key="{{index}}" wx:for="{{sectionModel}}" data-section="{{index}}" bindtap="handleGoToSection">{{index + 1}}</view>
+    <view class="sectionItem" wx:key="{{index}}" wx:for="{{sectionModel}}" data-section="{{index+1}}" bindtap="handleGoToSection">{{index + 1}}</view>
   </view>
   
 </view>

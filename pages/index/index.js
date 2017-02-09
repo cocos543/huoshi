@@ -6,7 +6,7 @@ let app = getApp();
 Page({
   data: {
     chapter, //章节数据
-    activeBook : 0, //0:新约, 1:旧约
+    activeBook : 1, //0:旧约, 1:新约
     activeChapter : null, //当前展开的章节
     sectionModel : [], //当前展开章节的小节模型
     
@@ -36,9 +36,10 @@ Page({
     }
   },
   handleGoToSection : function(event){
-    let data = this.data.chapter[this.data.activeBook].items[this.data.activeChapter]
+    let data = this.data.chapter[this.data.activeBook].items[this.data.activeChapter];
+
     wx.navigateTo({
-      url: '../section/section?section='+ event.target.dataset.section + '&isNew=' + data.is_new + '&volumeId=' + data.volume_id
+      url: '../section/section?section='+ event.target.dataset.section + '&name=' + data.full_name + '&volumeId=' + data.volume_id
     })
   },
   formatChapterArray : function(n){
@@ -71,8 +72,6 @@ Page({
       }
     }
 
-    console.log(res)
-
     return res
   },
   onLoad : function(){
@@ -83,11 +82,10 @@ Page({
     
     // wx.request({
     //     url:"https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/volume",
-    //     header:{
-    //        // "Content-Type":"application/json"
-    //     },
-    //     success:function(res){
-    //         console.log(res.data)
+    //     success: (res)=>{
+    //       this.setData({
+    //           chapter : this.formatChapter(res.data.data),
+    //       });
     //     },
     //     fail:function(err){
     //         console.log(err)
