@@ -8,8 +8,7 @@
   <!--章节-上-->
   <view class="chapterList">
     <view class="{{chapter[activeBook].items[activeChapter].volume_id === item.volume_id ? 'chapterItem active' : 'chapterItem'}}" wx:key="volume_id" wx:for="{{chapterTop}}" bindtap="handleActiveChapter" data-chapter="{{index}}">
-    <view class="chapterItem-header">{{item.name1}}</view>{{item.name2}}
-    </view>
+    <view class="chapterItem-header">{{item.name1}}</view>{{item.name2}}</view>
   </view>
 
   <!--小节-->
@@ -20,8 +19,7 @@
   <!--章节-下-->
   <view class="chapterList">
     <view class="{{chapter[activeBook].items[activeChapter].volume_id === item.volume_id ? 'chapterItem active' : 'chapterItem'}}" wx:key="{{item.volume_id}}" wx:for="{{chapterBottom}}" bindtap="handleActiveChapter" data-chapter="{{index + chapterTop.length}}">
-    <view class="chapterItem-header">{{item.name1}}</view>{{item.name2}}
-    </view>
+    <view class="chapterItem-header">{{item.name1}}</view>{{item.name2}}</view>
   </view>
 
   <!--公告-->

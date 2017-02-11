@@ -8,10 +8,10 @@ Page({
     chapter, //章节数据
     chapterTop : [],
     chapterBottom : [],
-    activeBook : 0, //0:旧约, 1:新约
+    activeBook : 1, //0:旧约, 1:新约
     activeChapter : null, //当前展开的章节
     sectionModel : [], //当前展开章节的小节模型
-    message : ''
+    notice : ''
     
   },
   handleChangeBook : function(event){
@@ -119,7 +119,6 @@ Page({
     //     fail:function(err){
     //         console.log(err)
     //     }
-
     // })
   }
 })
