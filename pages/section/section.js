@@ -47,5 +47,11 @@ Page({
         }
     })
     
+  },
+  onShareAppMessage : function(){
+    return{
+      title : '活石微信小程序',
+      path : '/pages/index/index'
+    }
   }
 })
