@@ -49,7 +49,7 @@ Page({
     let data = this.data.chapter[this.data.activeBook].items[this.data.activeChapter];
 
     wx.navigateTo({
-      url: '../section/section?section='+ event.target.dataset.section + '&name=' + data.full_name + '&volumeId=' + data.volume_id
+      url: '../section/section?section='+ event.target.dataset.section + '&name=' + data.full_name + '&volumeId=' + data.volume_id + '&total=' + data.chapter_number
     });
   },
   formatChapterArray : function(n){
