@@ -16,12 +16,12 @@
     color: #333;
 }
 .bottom{
-    margin: 36rpx 0;
+    padding: 30rpx 0 36rpx 0;
     text-align: center;
 }
 .button{
     display: inline-block;
-    width: 150rpx;
+    width: 180rpx;
     height: 48rpx;
     line-height: 48rpx;
     font-size: 24rpx;
