@@ -1,7 +1,7 @@
 /**section.wxss**/
 .lection{
     margin: 25rpx 32rpx;
-    min-height: 40px;
+    min-height: 40rpx;
 }
 .lection-index{
     float: left;
@@ -10,8 +10,25 @@
     color: #888;
 }
 .lection-text{
-    padding-left: 66rpx;
+    padding-left: 46rpx;
     font-size: 32rpx;
     line-height: 40rpx;
     color: #333;
+}
+.bottom{
+    margin: 36rpx 0;
+    text-align: center;
+}
+.button{
+    display: inline-block;
+    width: 150rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    font-size: 24rpx;
+    margin: 0 20rpx;
+    background: #fff;
+    color: #333;
+}
+.button.disabled{
+    color: #999;
 }
