@@ -1,12 +1,23 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/section/section"
+    "pages/section/section",
+    "pages/recitation/recitation",
+    "pages/recitation/book"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#75cbec",
     "navigationBarTitleText": "圣经",
     "navigationBarTextStyle":"#fff"
+  },
+    "tabBar": {
+      "list": [{
+        "pagePath": "pages/index/index",
+        "text": "读"
+      }, {
+        "pagePath": "pages/recitation/recitation",
+        "text": "背"
+      }]
   }
 }

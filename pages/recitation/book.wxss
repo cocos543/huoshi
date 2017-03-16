@@ -1,0 +1,8 @@
+/* pages/recitation/book.wxss */
+page{
+    background-color:#ffffff;
+}
+
+.title{
+    padding-top: 50rpx;
+}

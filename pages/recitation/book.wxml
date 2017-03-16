@@ -1,0 +1,16 @@
+<!--pages/recitation/book.wxml-->
+<view class="title weui-cells__title">当前背诵:</view>
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell" wx:for="{{[1, 2, 3, 4]}}">
+        <view class="weui-cell__bd">标题文字</view>
+        <view class="weui-cell__ft">说明文字</view>
+    </view>
+</view>
+ 
+<view class="title weui-cells__title">完成背诵:</view>
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+        <view class="weui-cell__bd">标题文字</view>
+        <view class="weui-cell__ft">说明文字</view>
+    </view>
+</view>

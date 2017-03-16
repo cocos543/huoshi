@@ -1,4 +1,5 @@
 /**app.wxss**/
+@import "weui/style/weui.wxss";
 page{
     background: #f2f2f2;
 }
