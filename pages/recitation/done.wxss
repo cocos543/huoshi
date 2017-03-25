@@ -1,0 +1,43 @@
+/* pages/recitation/done.wxss */
+page{
+    background-color:#ffffff;
+}
+
+.topview{
+    height: 800rpx;
+    background:url(/res/done_pic.png);
+    background-size:100% 100%;
+}
+.headerImg{
+    padding-top: 100rpx;
+    padding-bottom: 8rpx;
+}
+
+.codeImg{
+    padding-top: 50rpx;
+    padding-bottom: 8rpx;
+}
+.nameLabel{
+    display: block;
+    text-align: center;
+}
+.doneDesc{
+    width: 80%;
+    font-size: 33rpx;
+}
+.doenDetail{
+     padding-top: 58rpx;
+     flex-direction:column;
+     padding-left: 30%;
+     font-size: 33rpx;
+}
+.codelabel{
+    font-size: 28rpx;
+    text-align: center;
+}
+.adlaebl{
+    padding-top: 58rpx;
+    padding-bottom: 36rpx;
+    text-align: center;
+    font-size: 33rpx;
+}

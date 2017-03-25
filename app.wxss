@@ -3,3 +3,16 @@
 page{
     background: #f2f2f2;
 }
+view{
+    color: #666666;
+}
+.bluetxt{
+    color: #40AAD3;
+}
+.lscenter{
+    display: flex;
+    justify-content:center;
+}
+.pading24 {
+    padding: 24rpx;
+}

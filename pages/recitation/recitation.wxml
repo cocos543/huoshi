@@ -1,15 +1,15 @@
 <view class="header pading24">打卡天数:</view>
-<view class="lscenter lsday-view">
+<view class="lscenter pading24 lsday-view">
     <image style="width:250rpx; height:250rpx;" mode="scaleToFill" src="/res/day.png"></image>
-    <view class="label">20天</view>
+    <view class="label">{{todayData == null ? '--' : 'none'}}天</view>
 </view>
 <view class="recite-view">
 <view class="label">当前背诵:</view>
     <view class="txtbox">
-        <view bindtap="selectBook">这是一本书</view>
-        <view class="progress">50%</view>
+        <view bindtap="selectBook">{{todayData == null ? '点击选择背诵主题': todayData.book_name}}</view>
+        <view class="progress">0%</view>
     </view>
 </view>
-<view class="recite-notice bluetxt">今天有6节新增的背诵,2节需要复习</view>
-<button class="startBtn">开始背诵></button>
+<view class="recite-notice bluetxt">--</view>
+<button class="startBtn" bindtap="clickRecite">开始背诵></button>
 <view bindtap="selectBook" class="change bluetxt">更换内容</view>

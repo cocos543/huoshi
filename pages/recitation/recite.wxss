@@ -1,0 +1,29 @@
+/* pages/recitation/recite.wxss */
+page{
+    background-color:#ffffff;
+}
+.header{
+    padding-top: 36rpx;
+}
+.titleTxt{
+    font-size: 35rpx;
+}
+.bodyTxt{
+    font-size: 30rpx;
+    color: #333333;
+    line-height: 50rpx;
+}
+.confirmBtn{
+    width: 50%;
+    color: #555555;
+    background-color: #ffffff;
+    margin-top: 176rpx;
+    font-size: 30rpx;
+}
+button::after {
+    content:"";
+    border:1px solid #333333;
+}
+.countLabel{
+    padding-top: 50rpx;
+}

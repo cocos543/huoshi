@@ -1,0 +1,18 @@
+<!--pages/recitation/recite.wxml-->
+<view class="header weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+        <view class="weui-cell__bd">
+        <view class="titleTxt bluetxt">新增背诵</view>
+        <view class="bodyTxt">第一本书名</view>
+        </view>
+        <view class="bluetxt titleTxt weui-cell__ft">忽略</view>
+    </view>
+
+    <view class="weui-cell">
+        <view class="bodyTxt weui-cell__bd">
+        今天下雨了,空气很潮湿,衣服到了晚上还么有干.今晚去看电影拉拉拉
+        </view>
+    </view>
+</view>
+<button class="confirmBtn" bindtap="clickDone">我记住了</button>
+<button class="gobackBtn" bindtap="clickBack">回去重背</button>

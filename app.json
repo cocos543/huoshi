@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/section/section",
     "pages/recitation/recitation",
-    "pages/recitation/book"
+    "pages/recitation/book",
+    "pages/recitation/recite",
+    "pages/recitation/review",
+    "pages/recitation/done"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -11,13 +14,23 @@
     "navigationBarTitleText": "圣经",
     "navigationBarTextStyle":"#fff"
   },
-    "tabBar": {
-      "list": [{
-        "pagePath": "pages/index/index",
-        "text": "读"
-      }, {
-        "pagePath": "pages/recitation/recitation",
-        "text": "背"
-      }]
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "读",
+      "iconPath":"res/tab1.png",
+      "selectedIconPath":"res/tab1.png"
+    }, {
+      "pagePath": "pages/recitation/recitation",
+      "text": "背",
+      "iconPath":"res/tab2.png",
+      "selectedIconPath":"res/tab2.png"
+      
+    }]
+  },
+
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
   }
 }

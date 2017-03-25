@@ -1,0 +1,9 @@
+/* pages/recitation/review.wxss */
+@import "recite.wxss";
+.gobackBtn{
+    width: 50%;
+    color: #555555;
+    background-color: #ffffff;
+    margin-top: 36rpx;
+    font-size: 30rpx;
+}

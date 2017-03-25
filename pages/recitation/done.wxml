@@ -1,0 +1,21 @@
+<!--pages/recitation/done.wxml-->
+<view class='topview'>
+    <view class='lscenter headerImg'>
+        <image style="width:200rpx; height:200rpx;" mode="scaleToFill" src="/res/day.png"></image>
+    </view>
+    <view class='nameLabel'>姚产品</view>
+    <view class='lscenter'>
+        <view class='doneDesc bluetxt'>我刚刚在活石里面背诵了,简单又方便!简单又方便!简单又方便!简单又方便!</view>
+    </view>
+    <view class='lscenter doenDetail'>
+        <view>用时:10分钟</view>
+        <view>成果:4节经文,2个字</view>
+        <view>进度:已完成49%</view>
+        <view>累积:4节经文,200个字</view>
+    </view>
+    <view class='lscenter codeImg'>
+        <image style="width:200rpx; height:200rpx;" mode="scaleToFill" src="/res/2code.png"></image>
+    </view>
+    <view class='codelabel' >长按识别二维码</view>
+    <view class='bluetxt adlaebl'>每天十分钟,圣经刻心中</view>
+</view>

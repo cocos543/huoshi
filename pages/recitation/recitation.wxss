@@ -10,15 +10,6 @@ page{
     color: #313131;
 }
 
-.pading24 {
-    padding: 24rpx;
-}
-
-.lscenter{
-    display: flex;
-    justify-content:center;
-    padding: 25rpx;
-}
 .lsday-view{
     position:relative;
 }
