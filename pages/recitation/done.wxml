@@ -8,10 +8,10 @@
         <view class='doneDesc bluetxt'>我刚刚在活石里面背诵了,简单又方便!简单又方便!简单又方便!简单又方便!</view>
     </view>
     <view class='lscenter doenDetail'>
-        <view>用时:10分钟</view>
-        <view>成果:4节经文,2个字</view>
-        <view>进度:已完成49%</view>
-        <view>累积:4节经文,200个字</view>
+        <view>用时:n分钟</view>
+        <view>成果:0节经文,n个字</view>
+        <view>进度:已完成0%</view>
+        <view>累积:4节经文</view>
     </view>
     <view class='lscenter codeImg'>
         <image style="width:200rpx; height:200rpx;" mode="scaleToFill" src="/res/2code.png"></image>

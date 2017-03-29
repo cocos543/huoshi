@@ -50,53 +50,177 @@ App({
     var that = this;
     var token = this.globalData.userKey;
     var topicID = topidID ? topidID : this.globalData.topicID;
+    if (!this.checkNeedReciting()) {
+      //没有新增背诵了
+      typeof cb == "function" && cb(null)
+      return;
+    }
     wx.request({
-                url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/new/content',
-                data: {
-                  token: token,
-                  topic_id:topicID
-                },
-                success: function(res) {
-                  if (res.data.code == 200) {
-                    that.globalData.todayReciteData = res.data;
-                    wx.setStorageSync('globalData', that.globalData);
-                    console.log(res.data);
-                  }else if(res.data.code == 452) {
-                    //从未选择背诵内容
-                    that.globalData.todayReciteData = null;
-                  }
-                  typeof cb == "function" && cb(that.globalData.todayReciteData)
-                }
-              })
-      //
+      url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/new/content',
+      data: {
+        token: token,
+        topic_id:1
+      },
+      success: function(res) {
+        if (res.data.code == 200) {
+          that.globalData.todayReciteData = res.data.data;
+          wx.setStorageSync('globalData', that.globalData);
+          console.log(res.data);
+        }else if(res.data.code == 452) {
+          //从未选择背诵内容
+          that.globalData.todayReciteData = null;
+        }
+        typeof cb == "function" && cb(that.globalData.todayReciteData)
+      }
+    })
+  },
+
+  getTodayReviewing:function(cb) {
+    var that = this;
+    var token = this.globalData.userKey;
+    wx.request({
+      url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/today/review',
+      data: {
+        token: token
+      },
+      success: function(res) {
+        if (res.data.code == 200) {
+          that.globalData.todayReviewData = res.data.data;
+          wx.setStorageSync('globalData', that.globalData);
+          console.log(res.data.data);
+        }else {
+          //暂无背诵内容
+          that.globalData.todayReviewData = null;
+        }
+        
+        typeof cb == "function" && cb(that.globalData.todayReviewData)
+      }
+    })
+  },
+
+  setIngroneReciting:function(cb, topicData) {
+    var that = this;
+    var token = this.globalData.userKey;
+    wx.request({
+      url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/ignore/content',
+      data: {
+        token: token,
+        topic_id: topicData.topic_id,
+        content_id: topicData.content_id,
+      },
+      success: function(res) {
+        if (res.data.code == 200) {
+          //忽略成功,重新请求新内容
+          typeof cb == "function" && cb(200);
+        }else {
+          typeof cb == "function" && cb(res.data.code);
+          console.log(res.data);
+        }
+      }
+    })
   },
 
   getProcessList:function(cb){
     var that = this;
     var token = this.globalData.userKey;
     wx.request({
-                url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/recite/progress',
-                data: {
-                  token: token,
-                },
-                success: function(res) {
-                  if (res.data.code == 200) {
-                    that.globalData.processList = res.data;
-                    wx.setStorageSync('globalData', that.globalData);
-                  }
-                  typeof cb == "function" && cb(that.globalData.processList);
-                }
-              })
-      //
+      url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/recite/progress',
+      data: {
+        token: token,
+      },
+      success: function(res) {
+        if (res.data.code == 200) {
+          that.globalData.processList = res.data;
+          wx.setStorageSync('globalData', that.globalData);
+        }
+        typeof cb == "function" && cb(that.globalData.processList);
+      }
+    })
+  },
+
+  uploadReciteData:function(cb, topicData){
+    var that = this;
+    var token = this.globalData.userKey;
+    wx.request({
+      url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/complete/recite',
+      data: {
+        token: token,
+        topic_id: topicData.topic_id,
+        content_id: topicData.content_id,
+        topic_name: topicData.topic_name,
+      },
+      success: function(res) {
+        if (res.data.code == 200) {
+          //上报成功了,继续获取新的背诵内容
+          var todayStr = new Date().Format("yyyy-MM-dd");
+          that.globalData.currentReciteStat.lastTime = todayStr;
+          that.globalData.currentReciteStat.count += 1;
+          wx.setStorageSync('globalData', that.globalData);
+          if (that.checkNeedReciting()) {
+            that.getTodyReciting(cb)
+          }else {
+            typeof cb == "function" && cb(null);
+          }
+        }
+      },
+      fail:function(res) {
+
+      }
+    })
+  },
+
+  checkNeedReciting:function(){
+    var todayStr = new Date().Format("yyyy-MM-dd");
+    if (this.globalData.currentReciteStat.lastTime == todayStr) {
+      if (this.globalData.currentReciteStat.count >= 2) {
+        //今日不需要再背诵了
+        return false;
+      }else {
+        return true;
+      }
+    }else {
+      this.globalData.currentReciteStat.count = 0;
+      this.saveGlobalData();
+      return true;
+    }
+  },
+
+  saveGlobalData:function(){
+    wx.setStorageSync('globalData', this.globalData);
   },
 
   globalData:{
     userInfo:null,
     userKey :null,
     topicID:null,
+    currentReciteStat:{lastTime:'',count:0},
     todayReciteData:null,
+    todayReviewData:null,
     processList: null,
     topicList:null,
   },
   
 })
+
+
+// 对Date的扩展，将 Date 转化为指定格式的String
+// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
+// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) 
+// 例子： 
+// (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
+// (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
+Date.prototype.Format = function (fmt) { //author: meizz 
+    var o = {
+        "M+": this.getMonth() + 1, //月份 
+        "d+": this.getDate(), //日 
+        "h+": this.getHours(), //小时 
+        "m+": this.getMinutes(), //分 
+        "s+": this.getSeconds(), //秒 
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+        "S": this.getMilliseconds() //毫秒 
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}

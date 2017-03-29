@@ -12,7 +12,7 @@ Page({
       icon: 'loading',
       duration: 10000,
       complete:function(res){
-        console.log('请求超时');
+        console.log('complete');
       }
     });
 
@@ -59,8 +59,14 @@ Page({
 
   clickRecite:function(){
       console.log("book~~~~~~~~")
-      wx.navigateTo({
-        url: '/pages/recitation/recite'
-      })
+      if (app.checkNeedReciting()) {
+        wx.navigateTo({
+          url: '/pages/recitation/recite'
+        })
+      }else {
+        wx.navigateTo({
+         url: '/pages/recitation/review?isNew=0&load=1'
+        })
+      }
   },
 })

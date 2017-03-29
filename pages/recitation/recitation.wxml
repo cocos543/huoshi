@@ -1,7 +1,7 @@
 <view class="header pading24">打卡天数:</view>
 <view class="lscenter pading24 lsday-view">
     <image style="width:250rpx; height:250rpx;" mode="scaleToFill" src="/res/day.png"></image>
-    <view class="label">{{todayData == null ? '--' : 'none'}}天</view>
+    <view class="label">{{todayData == null ? '--' : todayData.recited_days}}天</view>
 </view>
 <view class="recite-view">
 <view class="label">当前背诵:</view>

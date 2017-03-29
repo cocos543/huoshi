@@ -10,7 +10,6 @@ page{
 }
 .bodyTxt{
     font-size: 30rpx;
-    color: #333333;
     line-height: 50rpx;
 }
 .confirmBtn{
