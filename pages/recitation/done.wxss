@@ -13,6 +13,10 @@ page{
     padding-bottom: 8rpx;
 }
 
+.headerImg image{
+    border-radius: 50%;
+}
+
 .codeImg{
     padding-top: 50rpx;
     padding-bottom: 8rpx;

@@ -1,8 +1,16 @@
 // pages/recitation/done.js
+var app = getApp();
+
 Page({
-  data:{},
+  data:{
+    userInfo:null,
+  },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    var info = app.globalData.userInfo;
+    this.setData({
+      userInfo:info,
+    });
   },
   onReady:function(){
     // 页面渲染完成

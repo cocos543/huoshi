@@ -6,10 +6,12 @@ Page({
     topicData:null,
     reviewData:null,
     handleContent:null,
+    reviewIndex:0,
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
     var title, tData, rData, content;
+    var that = this;
     if (options.isNew == '1') {
       title = '金句初记'
       tData = app.globalData.todayReciteData
@@ -24,16 +26,28 @@ Page({
                 url: '/pages/recitation/done'
             })
           }else {
-            tData = data
+            rData = data[app.globalData.reviewIndex];
+            if (!rData) {
+              wx.navigateTo({
+                url: '/pages/recitation/done'
+              })
+              return;
+            }
             content = handleData(rData.content);
-            this.setData({
+            that.setData({
               handleContent:content,
               reviewData:rData,
             });
           }
         })
       }else {
-        rData = app.globalData.todayReviewData;
+        rData = app.globalData.todayReviewData[app.globalData.reviewIndex];
+        if (!rData) {
+          wx.navigateTo({
+            url: '/pages/recitation/done'
+          })
+          return;
+        }
         content = handleData(rData.content);
       }
     }
@@ -64,12 +78,12 @@ Page({
   },
 
   clickDone:function(){
-    wx.showToast({
-      title: '上报中',
-      icon: 'loading',
-      duration: 10000,
-    });
     if (this.data.topicData) {
+      wx.showToast({
+        title: '上报中',
+        icon: 'loading',
+        duration: 10000,
+      });
       app.uploadReciteData(function(todayReciteData) {
         if (todayReciteData == null) {
           //No more mission
@@ -97,7 +111,18 @@ Page({
         
       }, this.data.topicData);
     }else if(this.data.reviewData) {
-      //复习完成,如果还有复习内容则继续复习,没有就结束了.
+      //一次复习完成了,继续检查是否有其他需要复习的
+      app.globalData.reviewIndex++;
+      app.saveGlobalData();
+      if (app.globalData.reviewIndex < app.globalData.todayReviewData.length) {
+        wx.navigateTo({
+          url: '/pages/recitation/review?isNew=0&load=0'
+        });
+      } else {
+        wx.navigateTo({
+          url: '/pages/recitation/done'
+        })
+      }
     }
     
   },

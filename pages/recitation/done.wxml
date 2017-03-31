@@ -1,9 +1,9 @@
 <!--pages/recitation/done.wxml-->
 <view class='topview'>
     <view class='lscenter headerImg'>
-        <image style="width:200rpx; height:200rpx;" mode="scaleToFill" src="/res/day.png"></image>
+        <image style="width:200rpx; height:200rpx;" mode="scaleToFill" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     </view>
-    <view class='nameLabel'>姚产品</view>
+    <view class='nameLabel'>{{userInfo.nickName}}</view>
     <view class='lscenter'>
         <view class='doneDesc bluetxt'>我刚刚在活石里面背诵了,简单又方便!简单又方便!简单又方便!简单又方便!</view>
     </view>

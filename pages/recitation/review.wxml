@@ -3,7 +3,7 @@
     <view class="weui-cell">
         <view class="weui-cell__bd">
         <view class="titleTxt">{{titleLabel}}</view>
-        <view class="bluetxt bodyTxt">{{topicData.book_name}}</view>
+        <view class="bluetxt bodyTxt">{{topicData.book_name?topicData.book_name:reviewData.book_name}}</view>
         </view>
         <view class="bluetxt titleTxt weui-cell__ft">忽略</view>
     </view>

@@ -26,7 +26,8 @@ Page({
 
       app.getTodyReciting(function(data){
         if (data == null) {
-          //表示用户没有选择背诵注意,需要提醒去选择
+          //表示用户没有选择背诵注意,需要提醒去选择;或者今日不需要新增背诵了
+          data = app.globalData.todayReciteData;
         }
         that.setData({
             todayData:data

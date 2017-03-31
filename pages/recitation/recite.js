@@ -13,6 +13,9 @@ Page({
       topicData:app.globalData.todayReciteData,
     });
 
+    app.globalData.currentReciteStat.starTime = new Date().getTime() / 1000;
+    app.saveGlobalData();
+
   },
   onReady:function(){
     // 页面渲染完成

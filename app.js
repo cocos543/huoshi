@@ -86,7 +86,7 @@ App({
       success: function(res) {
         if (res.data.code == 200) {
           that.globalData.todayReviewData = res.data.data;
-          wx.setStorageSync('globalData', that.globalData);
+          that.saveGlobalData();
           console.log(res.data.data);
         }else {
           //暂无背诵内容
@@ -180,6 +180,7 @@ App({
       }
     }else {
       this.globalData.currentReciteStat.count = 0;
+      this.globalData.reviewIndex = 0;
       this.saveGlobalData();
       return true;
     }
@@ -193,11 +194,12 @@ App({
     userInfo:null,
     userKey :null,
     topicID:null,
-    currentReciteStat:{lastTime:'',count:0},
+    currentReciteStat:{lastTime:'',count:0, starTime:0},
     todayReciteData:null,
     todayReviewData:null,
     processList: null,
     topicList:null,
+    reviewIndex:0
   },
   
 })
