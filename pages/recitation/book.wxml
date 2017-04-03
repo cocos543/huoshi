@@ -1,16 +1,16 @@
 <!--pages/recitation/book.wxml-->
 <view class="title weui-cells__title">当前背诵:</view>
 <view class="weui-cells weui-cells_after-title">
-    <view data-tid="{{index}}" bindtap="selectTopic" class="weui-cell" wx:for="{{topicList}}">
-        <view class="{{item.id == topicID ? 'bluetxt':''}} weui-cell__bd">{{item.name}}</view>
-        <view class="{{item.id == topicID ? 'bluetxt':''}} weui-cell__ft">{{item.num}}</view>
+    <view bindtap="selectTopic" class="weui-cell" wx:for="{{topicList}}">
+        <view data-tid="{{item.id}}" class="{{item.id == topicID ? 'bluetxt':''}} weui-cell__bd">{{item.name}}</view>
+        <view data-tid="{{item.id}}" class="{{item.id == topicID ? 'bluetxt':''}} weui-cell__ft">{{item.num}}</view>
     </view>
 </view>
  
 <view class="title weui-cells__title">完成背诵:</view>
-<view class="weui-cells weui-cells_after-title">
+<view class="weui-cells weui-cells_after-title" wx:for="{{finishList}}">
     <view class="weui-cell">
-        <view class="weui-cell__bd">标题文字</view>
-        <view class="weui-cell__ft">说明文字</view>
+        <view class="weui-cell__bd">{{item.topic_name}}</view>
+        <view class="weui-cell__ft">已完成</view>
     </view>
 </view>

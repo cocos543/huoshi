@@ -21,7 +21,7 @@
       "iconPath":"res/tab1.png",
       "selectedIconPath":"res/tab1.png"
     }, {
-      "pagePath": "pages/recitation/done",
+      "pagePath": "pages/recitation/recitation",
       "text": "背",
       "iconPath":"res/tab2.png",
       "selectedIconPath":"res/tab2.png"

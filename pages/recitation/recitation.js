@@ -24,10 +24,13 @@ Page({
         userInfo:userInfo
       })
 
+      app.getTodayReviewing(function(data){
+      });
+
       app.getTodyReciting(function(data){
+        that.isLogin = true;
         if (data == null) {
           //表示用户没有选择背诵注意,需要提醒去选择;或者今日不需要新增背诵了
-          data = app.globalData.todayReciteData;
         }
         that.setData({
             todayData:data
@@ -43,6 +46,12 @@ Page({
   },
   onShow:function(){
     // 页面显示
+    if (this.isLogin) {
+      var data = app.globalData.todayReciteData;
+      this.setData({
+          todayData:data
+      })
+    }
   },
   onHide:function(){
     // 页面隐藏
@@ -60,6 +69,15 @@ Page({
 
   clickRecite:function(){
       console.log("book~~~~~~~~")
+      if(app.globalData.returnCode == 451) {
+        wx.showModal({
+          title: '提示',
+          content: '请切换新主题',
+          showCancel: false
+        })
+        return;
+      }
+
       if (app.checkNeedReciting()) {
         wx.navigateTo({
           url: '/pages/recitation/recite'

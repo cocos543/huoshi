@@ -16,3 +16,13 @@ view{
 .pading24 {
     padding: 24rpx;
 }
+
+.processBar {
+	width:80%;
+	padding-right: 8rpx;
+}
+
+.processBar_Info {
+    color: #999999;
+    font-size: 30rpx;
+}

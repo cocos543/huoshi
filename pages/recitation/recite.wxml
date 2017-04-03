@@ -1,4 +1,8 @@
 <!--pages/recitation/recite.wxml-->
+<view class="lscenter">
+    <progress class="processBar" percent="{{processBar.precent}}" active activeColor="#40AAD3"/>
+    <view class="processBar_Info"> {{processBar.step}}/{{processBar.totalStep}}</view>
+</view>
 <view class="header weui-cells weui-cells_after-title">
     <view class="weui-cell">
         <view class="weui-cell__bd">

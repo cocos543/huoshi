@@ -5,15 +5,25 @@ Page({
   data:{
     topicData:null,
     count:0,
+    processBar:{},
 
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    var processBar = {};
+    processBar.totalStep = 2 + app.globalData.todayReviewData.length;
+    processBar.step = app.globalData.currentReciteStat.count;
+    processBar.precent = Math.floor(processBar.step / processBar.totalStep * 100);
+
     this.setData({
       topicData:app.globalData.todayReciteData,
+      processBar:processBar
     });
 
-    app.globalData.currentReciteStat.starTime = new Date().getTime() / 1000;
+    app.globalData.currentReciteStat.startTime = new Date().getTime() / 1000;
+    app.globalData.currentReciteStat.contentTotalLength += app.globalData.todayReciteData.content.length;
+    app.globalData.currentReciteStat.todayReciteState = false;
+    app.globalData.currentReciteStat.statData = null;
     app.saveGlobalData();
 
   },
@@ -32,7 +42,7 @@ Page({
 
   clickDone:function(){
     console.log("book~~~~~~~~")
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/recitation/review?isNew=1'
     })
   },
@@ -58,7 +68,7 @@ Page({
               app.getTodyReciting(function(data){
                 if (data == null) {
                   //没有新增背诵了,进入复习界面
-                  wx.navigateTo({
+                  wx.redirectTo({
                     url: '/pages/recitation/review?isNew=0&load=1'
                   });
                 }else {

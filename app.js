@@ -4,11 +4,10 @@ App({
     //调用API从本地缓存中获取数据
     var data = wx.getStorageSync('globalData') || null
     if (data) {
-      this.globalData = data;
-
-      //初始化一些固定的数据
-      this.globalData.topicList = [{'name':'相信上帝','num':23, 'id':1},{'name':'神的安慰','num':26, 'id':2},{'name':'永生','num':28, 'id':3},{'name':'信心','num':45, 'id':4},{'name':'坦然无惧','num':27, 'id':5},{'name':'罗马书(全书)','num':433, 'id':18}];
+      this.globalData = data; 
     }
+    //初始化一些固定的数据
+    this.globalData.topicList = [{'name':'相信上帝','num':23, 'id':1},{'name':'神的安慰','num':26, 'id':2},{'name':'永生','num':28, 'id':3},{'name':'信心','num':45, 'id':4},{'name':'坦然无惧','num':27, 'id':5},{'name':'罗马书(全书)','num':433, 'id':18}];
   },
 
   getUserInfo:function(cb){
@@ -52,23 +51,28 @@ App({
     var topicID = topidID ? topidID : this.globalData.topicID;
     if (!this.checkNeedReciting()) {
       //没有新增背诵了
-      typeof cb == "function" && cb(null)
+      typeof cb == "function" && cb(this.globalData.todayReciteData)
       return;
     }
     wx.request({
       url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/new/content',
       data: {
         token: token,
-        topic_id:1
+        topic_id:topidID,
       },
       success: function(res) {
         if (res.data.code == 200) {
           that.globalData.todayReciteData = res.data.data;
           wx.setStorageSync('globalData', that.globalData);
           console.log(res.data);
+          that.globalData.todayReciteReturnCode = 200;
         }else if(res.data.code == 452) {
           //从未选择背诵内容
           that.globalData.todayReciteData = null;
+          that.globalData.todayReciteReturnCode = 452;
+        }else if(res.data.code == 451) {
+          //背诵完成了,重新选择.
+          that.globalData.todayReciteReturnCode = 451;
         }
         typeof cb == "function" && cb(that.globalData.todayReciteData)
       }
@@ -120,24 +124,6 @@ App({
     })
   },
 
-  getProcessList:function(cb){
-    var that = this;
-    var token = this.globalData.userKey;
-    wx.request({
-      url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/recite/progress',
-      data: {
-        token: token,
-      },
-      success: function(res) {
-        if (res.data.code == 200) {
-          that.globalData.processList = res.data;
-          wx.setStorageSync('globalData', that.globalData);
-        }
-        typeof cb == "function" && cb(that.globalData.processList);
-      }
-    })
-  },
-
   uploadReciteData:function(cb, topicData){
     var that = this;
     var token = this.globalData.userKey;
@@ -169,6 +155,28 @@ App({
     })
   },
 
+  getReciteProcess:function(cb){
+    var that = this;
+    var token = this.globalData.userKey;
+    wx.request({
+      url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/recite/progress',
+      data: {
+        token: token,
+      },
+
+      success: function(res) {
+        if (res.data.code == 200) {
+          that.globalData.reciteProcessData = res.data.data;
+          that.saveGlobalData();
+        }
+        typeof cb == "function" && cb(that.globalData.reciteProcessData);
+      },
+      fail:function(res) {
+
+      }
+    })
+  },
+
   checkNeedReciting:function(){
     var todayStr = new Date().Format("yyyy-MM-dd");
     if (this.globalData.currentReciteStat.lastTime == todayStr) {
@@ -179,11 +187,19 @@ App({
         return true;
       }
     }else {
-      this.globalData.currentReciteStat.count = 0;
-      this.globalData.reviewIndex = 0;
-      this.saveGlobalData();
+      //新的一天,重置背诵统计数据
+      this.resetCurrentRecitingStat();
       return true;
     }
+  },
+
+  resetCurrentRecitingStat:function(){
+    this.globalData.currentReciteStat.count = 0;
+    this.globalData.reviewIndex = 0;
+    this.globalData.currentReciteStat.todayReciteState = false;
+    this.globalData.currentReciteStat.contentTotalLength = 0;
+    this.globalData.currentReciteStat.statData = null;
+    this.saveGlobalData();
   },
 
   saveGlobalData:function(){
@@ -193,12 +209,22 @@ App({
   globalData:{
     userInfo:null,
     userKey :null,
+    //用户接口使用
     topicID:null,
-    currentReciteStat:{lastTime:'',count:0, starTime:0},
+
+    //统计背诵情况
+    currentReciteStat:{lastTime:'',count:0, contentTotalLength:0, startTime:0,endTime:0, todayReciteState:false, statData:null},
+    //背诵进度
+    reciteProcessData:null,
+    //今日背诵
     todayReciteData:null,
+    //今日背诵接口返回码
+    todayReciteReturnCode:0,
+    //今日复习列表
     todayReviewData:null,
-    processList: null,
+    //所有可背诵主题列表
     topicList:null,
+    //复习索引
     reviewIndex:0
   },
   

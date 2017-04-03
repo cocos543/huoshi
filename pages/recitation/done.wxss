@@ -36,7 +36,8 @@ page{
      font-size: 33rpx;
 }
 .codelabel{
-    font-size: 28rpx;
+    padding-top: 200rpx;
+    font-size: 30rpx;
     text-align: center;
 }
 .adlaebl{
