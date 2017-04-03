@@ -1,7 +1,7 @@
 /* pages/recitation/review.wxss */
 @import "recite.wxss";
 .gobackBtn{
-    width: 50%;
+    width: 52%;
     color: #555555;
     background-color: #ffffff;
     margin-top: 36rpx;

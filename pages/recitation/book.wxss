@@ -6,3 +6,9 @@ page{
 .title{
     padding-top: 50rpx;
 }
+
+.footerLabel{
+    color:#999999;
+    font-size:12px;
+    padding-top: 24rpx;
+}

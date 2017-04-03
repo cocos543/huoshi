@@ -18,5 +18,9 @@
         </view>
     </view>
 </view>
-<button class="confirmBtn" bindtap="clickDone">我记住了</button>
-<button class="gobackBtn" bindtap="clickBack">{{topicData?"回去重背":"忘了瞅瞅"}}</button>
+<view class="lscenter">
+    <view class="confirmBtn" bindtap="clickDone">我记住了</view>
+</view>
+<view class="lscenter">
+    <view class="confirmBtn gobackBtn" bindtap="clickBack">{{topicData?"回去重背":"忘了瞅瞅"}}</view>
+</view>

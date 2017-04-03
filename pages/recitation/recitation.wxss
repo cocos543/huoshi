@@ -1,4 +1,10 @@
 /* pages/recitation/recitation.wxss */
+@import "/wuxui/components/wux.wxss";
+
+.weui-toast__content {
+    color:#ffffff
+}
+
 page{
     background-color:#ffffff;
 }

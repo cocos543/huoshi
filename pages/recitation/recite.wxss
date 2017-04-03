@@ -9,20 +9,27 @@ page{
     font-size: 35rpx;
 }
 .bodyTxt{
-    font-size: 30rpx;
+    font-size: 33rpx;
     line-height: 50rpx;
 }
 .confirmBtn{
-    width: 50%;
+    display: inline-block;
+    text-align: center;
+    width: 52%;
     color: #555555;
     background-color: #ffffff;
     margin-top: 176rpx;
     font-size: 30rpx;
+    line-height: 70rpx;
+    height: 70rpx;
+    border:1px solid #bbbbbb;
+    border-radius: 5px;
 }
-button::after {
+
+/*button::after {
     content:"";
     border:1px solid #333333;
-}
+}*/
 .countLabel{
     padding-top: 50rpx;
 }

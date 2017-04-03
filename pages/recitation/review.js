@@ -9,6 +9,20 @@ Page({
     reviewIndex:0,
     sourceLabel:"",
   },
+
+  onShareAppMessage: function () {
+    return {
+      title: "我正在背圣经",
+      path: '/page/recitation/recitation',
+      success: function(res) {
+        // 分享成功
+      },
+      fail: function(res) {
+        // 分享失败
+      }
+    }
+  },
+
   onLoad:function(options){
     this.updateProcessBar();
 
@@ -89,7 +103,11 @@ Page({
 
   updateProcessBar:function(){
     var processBar = {};
-    processBar.totalStep = 2 + app.globalData.todayReviewData.length;
+    if (app.globalData.todayReviewData) {
+      processBar.totalStep = 2 + app.globalData.todayReviewData.length;
+    }else {
+      processBar.totalStep = 2;
+    }
     processBar.step = app.globalData.currentReciteStat.count + app.globalData.reviewIndex;
     processBar.precent = Math.floor(processBar.step / processBar.totalStep * 100);
 

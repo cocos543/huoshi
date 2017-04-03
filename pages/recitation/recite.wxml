@@ -7,18 +7,20 @@
     <view class="weui-cell">
         <view class="weui-cell__bd">
         <view class="titleTxt">金句初记</view>
-        <view class="bodyTxt bluetxt">{{topicData.book_name}}</view>
+        <view class="bodyTxt bluetxt">{{sourceLabel}}</view>
         </view>
         <view bindtap="clickIgnored" class="bluetxt titleTxt weui-cell__ft">忽略</view>
     </view>
 
-    <view class="weui-cell">
+    <view class="weui-cell"> 
         <view class="bodyTxt weui-cell__bd">
         {{topicData.content}}
         </view>
     </view>
 </view>
-<button class="confirmBtn" bindtap="clickDone">我记住了</button>
+<view class="lscenter">
+    <view class="confirmBtn" bindtap="clickDone">我记住了</view>
+</view>
 <view class='lscenter countLabel'>{{count}}遍</view>
 <view bindtap="clickCount" class="lscenter pading24">
     <image style="width:230rpx; height:230rpx;" mode="scaleToFill" src="/res/done.png"></image>

@@ -14,7 +14,7 @@ Page({
     var title = "第"+day+"天|智能背圣经";
     return {
       title: title,
-      path: '/page/done',
+      path: '/page/recitation/recitation',
       success: function(res) {
         // 分享成功
       },
@@ -71,6 +71,7 @@ Page({
         }
         statData.item = item;
         app.globalData.currentReciteStat.statData = statData;
+        app.globalData.todayReciteData.percent = item.percent;
         app.saveGlobalData();
 
         that.setData({

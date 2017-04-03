@@ -1,3 +1,7 @@
+<import src="/wuxui/components/toast/toast.wxml"/>
+
+<template is="toast" data="{{ ...$wux.toast }}"/>
+
 <view class="header pading24">打卡天数:</view>
 <view class="lscenter pading24 lsday-view">
     <image style="width:250rpx; height:250rpx;" mode="scaleToFill" src="/res/day.png"></image>
@@ -6,7 +10,7 @@
 <view class="recite-view">
 <view class="label">当前背诵:</view>
     <view class="txtbox">
-        <view bindtap="selectBook">{{todayData == null ? '点击选择背诵主题': todayData.book_name}}</view>
+        <view bindtap="selectBook">{{todayData == null ? '点击选择背诵主题': todayData.topic_name}}</view>
         <view class="progress">{{todayData.percent}}</view>
     </view>
 </view>

@@ -6,18 +6,39 @@ Page({
     topicData:null,
     count:0,
     processBar:{},
-
+    sourceLabel:"",
   },
+
+  onShareAppMessage: function () {
+    return {
+      title: "我正在背圣经",
+      path: '/page/recitation/recitation',
+      success: function(res) {
+        // 分享成功
+      },
+      fail: function(res) {
+        // 分享失败
+      }
+    }
+  },
+
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
     var processBar = {};
-    processBar.totalStep = 2 + app.globalData.todayReviewData.length;
+    if (app.globalData.todayReviewData) {
+      processBar.totalStep = 2 + app.globalData.todayReviewData.length;
+    }else {
+      processBar.totalStep = 2;
+    }
+    
     processBar.step = app.globalData.currentReciteStat.count;
     processBar.precent = Math.floor(processBar.step / processBar.totalStep * 100);
-
+    var tData = app.globalData.todayReciteData;
+  
     this.setData({
-      topicData:app.globalData.todayReciteData,
-      processBar:processBar
+      topicData:tData,
+      processBar:processBar,
+      sourceLabel: tData.book_name + " " + tData.chapter_no + ":" + tData.verse_no,
     });
 
     app.globalData.currentReciteStat.startTime = new Date().getTime() / 1000;

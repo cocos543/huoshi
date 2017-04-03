@@ -1,10 +1,26 @@
 // pages/recitation/recitation.js
+import { $wuxToast } from "../../wuxui/components/wux"
+
 var app = getApp();
 Page({
   data:{ 
     userInfo:null,
     todayData:null
   },
+
+  onShareAppMessage: function () {
+    return {
+      title: "我正在背圣经",
+      path: '/page/recitation/recitation',
+      success: function(res) {
+        // 分享成功
+      },
+      fail: function(res) {
+        // 分享失败
+      }
+    }
+  },
+
   onLoad:function(options) {
     // 页面初始化 options为页面跳转所带来的参数
     wx.showToast({
@@ -74,6 +90,13 @@ Page({
           title: '提示',
           content: '请切换新主题',
           showCancel: false
+        })
+        return;
+      }else if(app.globalData.returnCode == 452){
+        $wuxToast.show({
+            type: 'text',
+            timer: 1500,
+            text: '请先设置一个背诵主题'
         })
         return;
       }

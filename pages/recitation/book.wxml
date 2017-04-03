@@ -8,9 +8,10 @@
 </view>
  
 <view class="title weui-cells__title">完成背诵:</view>
-<view class="weui-cells weui-cells_after-title" wx:for="{{finishList}}">
+<view class="weui-cells weui-cells_after-title" wx:if="{{finishList.length > 0}}" wx:for="{{finishList}}">
     <view class="weui-cell">
         <view class="weui-cell__bd">{{item.topic_name}}</view>
         <view class="weui-cell__ft">已完成</view>
     </view>
 </view>
+<view class="lscenter footerLabel" wx:if="{{finishList.length == 0}}">赶紧完成你的第一个背诵主题吧。</view>
