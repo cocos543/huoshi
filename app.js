@@ -179,7 +179,7 @@ App({
 
   checkNeedReciting:function(){
     var todayStr = new Date().Format("yyyy-MM-dd");
-    if (this.globalData.currentReciteStat.lastTime == todayStr) {
+    if (this.globalData.currentReciteStat && this.globalData.currentReciteStat.lastTime == todayStr) {
       if (this.globalData.currentReciteStat.count >= 2) {
         //今日不需要再背诵了
         return false;
@@ -191,6 +191,13 @@ App({
       this.resetCurrentRecitingStat();
       return true;
     }
+  },
+
+  checkNeedReviewing:function(){
+    if (this.globalData.todayReviewData) {
+      return this.globalData.reviewIndex + 1 >= this.globalData.todayReviewData.length;
+    }
+    return false;
   },
 
   resetCurrentRecitingStat:function(){

@@ -15,6 +15,7 @@
     "navigationBarTextStyle":"#fff"
   },
   "tabBar": {
+    "selectedColor":"#40AAD3",
     "list": [{
       "pagePath": "pages/index/index",
       "text": "读",

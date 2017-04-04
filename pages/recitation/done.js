@@ -62,14 +62,17 @@ Page({
 
       app.getReciteProcess(function(data){
         var tid = app.globalData.todayReciteData.topic_id, item;
+        var totalRecitedNumber = 0;
         for(var i = 0; i< data.length; i++){
           var it = data[i];
+          totalRecitedNumber+= it.recited_number;
           if (it.topic_id == tid) {
             item = it;
             break;
           }
         }
         statData.item = item;
+        statData.totalRecitedNumber = totalRecitedNumber;
         app.globalData.currentReciteStat.statData = statData;
         app.globalData.todayReciteData.percent = item.percent;
         app.saveGlobalData();

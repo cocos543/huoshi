@@ -5,7 +5,8 @@ var app = getApp();
 Page({
   data:{ 
     userInfo:null,
-    todayData:null
+    todayData:null,
+    desc:'',
   },
 
   onShareAppMessage: function () {
@@ -68,6 +69,16 @@ Page({
           todayData:data
       })
     }
+    var desc;
+    if (!app.checkNeedReciting() && app.checkNeedReviewing()) {
+      //已经全部完成了
+      desc = "今天已完成背诵，我们明天见";
+    }else {
+      desc = "今天还没背完金句，别拖延了快开始。";
+    }
+    this.setData({
+        desc:desc
+    });
   },
   onHide:function(){
     // 页面隐藏
