@@ -17,14 +17,22 @@ page{
 }
 
 .lsday-view{
-    position:relative;
+    /*position:relative;*/
 }
 
-.lsday-view .label{
+/*.headerImg {
+    background:url(/res/day.png);
+    width: 250rpx;
+    height: 250rpx;
+}*/
+
+.dayLabel{
     color: #ffffff;
     font-size: 60rpx;
-    position:absolute;
-    top:100rpx;
+    position:relative;
+    top:-195rpx;
+    width: 100%;
+    text-align: center;
 }
 
 .recite-view {

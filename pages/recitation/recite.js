@@ -12,7 +12,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: "我正在背圣经",
-      path: '/page/recitation/recitation',
+      path: '/pages/recitation/recitation',
       success: function(res) {
         // 分享成功
       },
@@ -42,7 +42,6 @@ Page({
     });
 
     app.globalData.currentReciteStat.startTime = new Date().getTime() / 1000;
-    app.globalData.currentReciteStat.contentTotalLength += app.globalData.todayReciteData.content.length;
     app.globalData.currentReciteStat.todayReciteState = false;
     app.globalData.currentReciteStat.statData = null;
     app.saveGlobalData();

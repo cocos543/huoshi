@@ -12,7 +12,7 @@
 
     </view>
     <view class='lscenter doenDetail'>
-        <view>主题名:{{reciteData.topic_name}}</view>
+        <view>主题:{{reciteData.topic_name}}</view>
         <view>用时:{{statData.minute}}分钟</view>
         <view>成果:2节经文,{{statData.totalLength}}个字</view>
         <view>进度:已完成{{statData.item.percent}}</view>

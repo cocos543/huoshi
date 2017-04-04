@@ -13,7 +13,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: "我正在背圣经",
-      path: '/page/recitation/recitation',
+      path: '/pages/recitation/recitation',
       success: function(res) {
         // 分享成功
       },
@@ -138,6 +138,8 @@ Page({
         duration: 10000,
       });
       app.uploadReciteData(function(todayReciteData) {
+        app.globalData.currentReciteStat.contentTotalLength += app.globalData.todayReciteData.content.length;
+        app.saveGlobalData();
         if (todayReciteData == null) {
           //No more mission
           app.getTodayReviewing(function(data){
@@ -180,6 +182,10 @@ Page({
       }, this.data.topicData);
     }else if(this.data.reviewData) {
       //一次复习完成了,继续检查是否有其他需要复习的
+      var rData = app.globalData.todayReviewData[app.globalData.reviewIndex];
+      app.globalData.currentReciteStat.contentTotalLength += rData.content.length;
+      app.saveGlobalData();
+
       app.globalData.reviewIndex++;
       app.saveGlobalData();
       if (app.globalData.reviewIndex < app.globalData.todayReviewData.length) {

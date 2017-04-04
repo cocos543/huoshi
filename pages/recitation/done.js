@@ -14,7 +14,7 @@ Page({
     var title = "第"+day+"天|智能背圣经";
     return {
       title: title,
-      path: '/page/recitation/recitation',
+      path: '/pages/recitation/recitation',
       success: function(res) {
         // 分享成功
       },
