@@ -96,14 +96,14 @@ Page({
 
   clickRecite:function(){
       console.log("book~~~~~~~~")
-      if(app.globalData.returnCode == 451) {
+      if(app.globalData.todayReciteReturnCode == 451) {
         wx.showModal({
           title: '提示',
           content: '请切换新主题',
           showCancel: false
         })
         return;
-      }else if(app.globalData.returnCode == 452){
+      }else if(app.globalData.todayReciteReturnCode == 452){
         $wuxToast.show({
             type: 'text',
             timer: 1500,
