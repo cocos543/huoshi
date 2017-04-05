@@ -72,7 +72,7 @@ Page({
     var desc;
     if (!app.checkNeedReciting() && app.checkNeedReviewing()) {
       //已经全部完成了
-      desc = "今天已完成背诵，我们明天见";
+      desc = "今天已完成背诵，我们明天见。";
     }else {
       desc = "今天还没背完金句，别拖延了快开始。";
     }

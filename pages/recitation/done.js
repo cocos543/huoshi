@@ -73,6 +73,7 @@ Page({
         }
         statData.item = item;
         statData.totalRecitedNumber = totalRecitedNumber;
+        statData.todayRecitedNumber = 2 + app.globalData.todayReviewData.length;
         app.globalData.currentReciteStat.statData = statData;
         app.globalData.todayReciteData.percent = item.percent;
         app.saveGlobalData();
