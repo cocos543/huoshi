@@ -16,9 +16,9 @@ page{
     color: #313131;
 }
 
-.lsday-view{
-    /*position:relative;*/
-}
+/*.lsday-view{
+    position:relative;
+}*/
 
 /*.headerImg {
     background:url(/res/day.png);

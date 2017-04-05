@@ -1,9 +1,9 @@
 <!--pages/recitation/book.wxml-->
 <view class="title weui-cells__title">当前背诵:</view>
 <view class="weui-cells weui-cells_after-title">
-    <view bindtap="selectTopic" class="weui-cell" wx:for="{{topicList}}">
-        <view data-tid="{{item.id}}" class="{{item.id == topicID ? 'bluetxt':''}} weui-cell__bd">{{item.name}}</view>
-        <view data-tid="{{item.id}}" class="{{item.id == topicID ? 'bluetxt':''}} weui-cell__ft">{{item.num}}</view>
+    <view data-tid="{{item.id}}" bindtap="selectTopic" class="weui-cell" wx:for="{{topicList}}">
+        <view class="{{item.id == topicID ? 'bluetxt':''}} weui-cell__bd">{{item.name}}</view>
+        <view class="{{item.id == topicID ? 'bluetxt':''}} weui-cell__ft">{{item.num}}</view>
     </view>
 </view>
  

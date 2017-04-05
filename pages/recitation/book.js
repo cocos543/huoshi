@@ -63,7 +63,7 @@ Page({
   selectTopic:function(event){
     console.log(event);
     var that = this;
-    var topicID = event.target.dataset.tid;
+    var topicID = event.currentTarget.dataset.tid;
     wx.showModal({
       title: '提示',
       content: '切换新主题会清空当前背诵内容',

@@ -45,10 +45,10 @@ App({
     })
   },
 
-  getTodyReciting:function(cb, topidID){
+  getTodyReciting:function(cb, topicID){
     var that = this;
     var token = this.globalData.userKey;
-    var topicID = topidID ? topidID : this.globalData.topicID;
+    var topicID = topicID ? topicID : this.globalData.todayReciteData.topic_id;
     if (!this.checkNeedReciting()) {
       //没有新增背诵了
       typeof cb == "function" && cb(this.globalData.todayReciteData)
@@ -58,7 +58,7 @@ App({
       url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/new/content',
       data: {
         token: token,
-        topic_id:topidID,
+        topic_id:topicID,
       },
       success: function(res) {
         if (res.data.code == 200) {

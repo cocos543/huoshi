@@ -2,7 +2,7 @@
 
 <template is="toast" data="{{ ...$wux.toast }}"/>
 
-<view class="header pading24">打卡天数:</view>
+<view class="header pading24"></view>
 <view class="lscenter pading24 lsday-view">
     <image style="width:250rpx; height:250rpx;" mode="scaleToFill" src="/res/day.png"></image>
 </view>
