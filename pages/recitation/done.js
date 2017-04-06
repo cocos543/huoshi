@@ -34,7 +34,7 @@ Page({
                 "我已经累计背圣经" + day + "天！很惭愧，就做了一点微小的学习，继续努力。","我已经累计背圣经" + day + "天！哈利路亚赞美神，再接再厉用圣经金句装备自己。"];
     this.setData({
       userInfo:info,
-      desc:desc[Math.floor(Math.random() * 3)],
+      desc:desc[Math.floor(Math.random() * desc.length)],
     });
 
     if (!app.globalData.currentReciteStat.todayReciteState) {
