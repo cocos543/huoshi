@@ -48,7 +48,11 @@ App({
   getTodyReciting:function(cb, topicID){
     var that = this;
     var token = this.globalData.userKey;
-    var topicID = topicID ? topicID : this.globalData.todayReciteData.topic_id;
+    if (!topicID) {
+      if (this.globalData.todayReciteData) {
+        topicID = this.globalData.todayReciteData.topic_id;
+      }
+    }
     if (!this.checkNeedReciting()) {
       //没有新增背诵了
       typeof cb == "function" && cb(this.globalData.todayReciteData)

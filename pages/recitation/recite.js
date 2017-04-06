@@ -93,7 +93,8 @@ Page({
                   });
                 }else {
                   that.setData({
-                    topicData:data
+                    topicData:data,
+                    sourceLabel: data.book_name + " " + data.chapter_no + ":" + data.verse_no
                   })
                 }
                 wx.hideToast();
