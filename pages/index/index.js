@@ -123,7 +123,7 @@ Page({
   },
   onShareAppMessage : function(){
     return{
-      title : '简单快捷读圣经',
+      title : '简单快捷读圣经，点我参与',
       path : '/pages/index/index'
     }
   }

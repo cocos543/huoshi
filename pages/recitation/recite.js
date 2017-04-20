@@ -11,7 +11,7 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: "我正在背圣经",
+      title: "我正在背圣经，点我参与",
       path: '/pages/recitation/recitation',
       success: function(res) {
         // 分享成功
@@ -76,7 +76,7 @@ Page({
       success: function(res) {
         if (res.confirm) {
           wx.showToast({
-            title: '请稍后',
+            title: '请稍候',
             icon: 'loading',
             mask: true,
             duration: 10000,

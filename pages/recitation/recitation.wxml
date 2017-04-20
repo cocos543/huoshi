@@ -16,4 +16,4 @@
 </view>
 <view class="recite-notice bluetxt">{{desc}}</view>
 <button class="startBtn" bindtap="clickRecite">开始背诵></button>
-<view bindtap="selectBook" class="change bluetxt">更换内容</view>
+<view bindtap="selectBook" class="change bluetxt">关闭后可以在「发现—小程序」里再次找到我哦～</view>

@@ -73,7 +73,7 @@ Page({
       success: function(res) {
         if (res.confirm) {
           wx.showToast({
-            title: '请稍后',
+            title: '请稍候',
             icon: 'loading',
             mask: true,
             duration: 10000,

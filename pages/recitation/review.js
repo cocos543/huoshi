@@ -12,7 +12,7 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: "我正在背圣经",
+      title: "我正在背圣经，点我参与",
       path: '/pages/recitation/recitation',
       success: function(res) {
         // 分享成功
@@ -133,7 +133,7 @@ Page({
     var that = this;
     if (this.data.topicData) {
       wx.showToast({
-        title: '上报中',
+        title: '上报中...',
         icon: 'loading',
         duration: 10000,
       });
@@ -210,7 +210,7 @@ function handleData(content) {
     var char = content[i];
     if (isChineseChar(char)) {
       if (Math.random() < 0.7) {
-        newStr += '*';
+        newStr += '░';
       }else {
         newStr += content[i];
       }

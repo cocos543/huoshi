@@ -7,7 +7,7 @@ App({
       this.globalData = data; 
     }
     //初始化一些固定的数据
-    this.globalData.topicList = [{'name':'相信上帝','num':23, 'id':1},{'name':'神的安慰','num':26, 'id':2},{'name':'永生','num':28, 'id':3},{'name':'信心','num':45, 'id':4},{'name':'坦然无惧','num':27, 'id':5},{'name':'罗马书(全书)','num':433, 'id':18}];
+    this.globalData.topicList = [{'name':'相信上帝','num':23, 'id':1},{'name':'神的安慰','num':26, 'id':2},{'name':'永生','num':28, 'id':3},{'name':'信心','num':45, 'id':4},{'name':'坦然无惧','num':27, 'id':5},{'name':'罗马书(全书)','num':433, 'id':18},{'name':'适合孩子背诵的经文（上）','num':29, 'id':6},{'name':'适合孩子背诵的经文（下）','num':19, 'id':19},{'name':'关于罪的金句','num':22, 'id':7},{'name':'饶恕','num':18, 'id':8},{'name':'传福音','num':115, 'id':9},{'name':'一无挂虑','num':11, 'id':10},{'name':'才德的妇人','num':93, 'id':11},{'name':'重建生命','num':49, 'id':12},{'name':'关于爱的金句','num':25, 'id':13},{'name':'远离诱惑','num':29, 'id':14},{'name':'神的医治','num':19, 'id':15},{'name':'小要理问答经文（上）','num':54, 'id':16},{'name':'小要理问答经文（下）','num':58, 'id':17},{'name':'效法基督','num':18, 'id':20}];
   },
 
   getUserInfo:function(cb){

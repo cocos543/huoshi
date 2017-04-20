@@ -11,7 +11,7 @@ Page({
 
   onShareAppMessage: function () {
     var day = app.globalData.todayReciteData.recited_days;
-    var title = "第"+day+"天|智能背圣经";
+    var title = "第"+day+"天背圣经|点击我参与";
     return {
       title: title,
       path: '/pages/recitation/recitation',
@@ -30,11 +30,11 @@ Page({
     var that = this;
 
     var day = app.globalData.todayReciteData.recited_days;
-    var desc = ["一颗赛艇！我已经累计" + day + "天和圣经金句谈笑风生！",
-                "我已经累计背圣经" + day + "天！很惭愧，就做了一点微小的学习，继续努力。","我已经累计背圣经" + day + "天！哈利路亚赞美神，再接再厉用圣经金句装备自己。"];
+    var desc = ["我已经累计背圣经" + day + "天！我要把耶和华的话记在心里，免得我得罪祂","一颗赛艇！我已经累计" + day + "天和圣经金句谈笑风生！",
+                "我已经累计背圣经" + day + "天！很惭愧，就做了一点微小的学习，继续努力。","我已经累计背圣经" + day + "天！哈利路亚赞美神，再接再厉用圣经金句装备自己。","我已经累计背圣经" + day + "天！耶和华的话是我脚前的路，是我路上的光。"];
     this.setData({
       userInfo:info,
-      desc:desc[Math.floor(Math.random() * 3)],
+      desc:desc[Math.floor(Math.random() * desc.length)],
     });
 
     if (!app.globalData.currentReciteStat.todayReciteState) {
@@ -42,7 +42,7 @@ Page({
       app.globalData.currentReciteStat.endTime = new Date().getTime() / 1000;
       app.saveGlobalData();
       wx.showToast({
-        title: '请稍后',
+        title: '请稍候',
         icon: 'loading',
         mask: true,
         duration: 10000,

@@ -9,7 +9,7 @@ page{
     background-size:100% 100%;
 }
 .headerImg{
-    padding-top: 80rpx;
+    padding-top: 60rpx;
     padding-bottom: 8rpx;
 }
 
@@ -36,7 +36,7 @@ page{
      font-size: 33rpx;
 }
 .codelabel{
-    padding-top: 200rpx;
+    padding-top: 10rpx;
     font-size: 30rpx;
     text-align: center;
 }

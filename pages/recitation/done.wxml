@@ -18,6 +18,9 @@
         <view>进度: 已完成{{statData.item.percent}}</view>
         <view>累积: {{statData.totalRecitedNumber}}节经文</view>
     </view>
-    <view class='codelabel' >在微信内搜索"微活石"点击搜一搜即可获得</view>
+    <view class='lscenter codeImg'>
+        <image style="width:200rpx; height:200rpx;" mode="scaleToFill" src="/res/2code.png"></image>
+    </view>
+    <view class='codelabel' >长按扫码，开启背圣经</view>
     <view class='bluetxt adlaebl'>每天十分钟,圣经刻心中</view>
 </view>

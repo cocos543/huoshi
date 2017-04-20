@@ -11,7 +11,7 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: "我正在背圣经",
+      title: "我正在背圣经，点击参与",
       path: '/pages/recitation/recitation',
       success: function(res) {
         // 分享成功

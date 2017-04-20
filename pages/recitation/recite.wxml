@@ -3,21 +3,17 @@
     <progress class="processBar" percent="{{processBar.precent}}" active activeColor="#40AAD3"/>
     <view class="processBar_Info"> {{processBar.step}}/{{processBar.totalStep}}</view>
 </view>
-<view class="header weui-cells weui-cells_after-title">
-    <view class="weui-cell">
-        <view class="weui-cell__bd">
-        <view class="titleTxt">金句初记</view>
-        <view class="bodyTxt bluetxt">{{sourceLabel}}</view>
-        </view>
-        <view bindtap="clickIgnored" class="bluetxt titleTxt weui-cell__ft">忽略</view>
-    </view>
-
-    <view class="weui-cell"> 
-        <view class="bodyTxt weui-cell__bd">
+<view class="titleTxt">金句初记 (<span class="bluetxt">{{sourceLabel}}</span>)</view>
+<view class="subTitle" bindtap="clickIgnored">忽略</view>
+<view class="bodyTxt">
         {{topicData.content}}
-        </view>
-    </view>
 </view>
+<view class="title2Txt">辅记注释</view>
+<view class="annotationTxt">
+        {{topicData.annotation.length > 0 ?topicData.annotation:"暂无注释"}}
+</view>
+
+
 <view class="lscenter">
     <view class="confirmBtn" bindtap="clickDone">我记住了</view>
 </view>
