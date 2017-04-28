@@ -3,21 +3,12 @@
     <progress class="processBar" percent="{{processBar.precent}}" active activeColor="#40AAD3"/>
     <view class="processBar_Info"> {{processBar.step}}/{{processBar.totalStep}}</view>
 </view>
-<view class="header weui-cells weui-cells_after-title">
-    <view class="weui-cell">
-        <view class="weui-cell__bd">
-        <view class="titleTxt">{{titleLabel}}</view>
-        <view class="bluetxt bodyTxt">{{sourceLabel}}</view>
-        </view>
-        <view class="bluetxt titleTxt weui-cell__ft" wx:if="{{topicData != null}}">忽略</view>
-    </view>
-
-    <view class="weui-cell">
-        <view class="bodyTxt weui-cell__bd">
+<view class="titleTxt">{{titleLabel}} (<span class="bluetxt">{{sourceLabel}}</span>)</view>
+<!--<view class="subTitle" wx:if="{{topicData != null}}">忽略</view>-->
+<view class="bodyTxt">
         {{handleContent}}
-        </view>
-    </view>
 </view>
+
 <view class="lscenter">
     <view class="confirmBtn" bindtap="clickDone">我记住了</view>
 </view>

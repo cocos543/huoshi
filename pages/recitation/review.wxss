@@ -1,4 +1,3 @@
-/* pages/recitation/review.wxss */
 /* pages/recitation/recite.wxss */
 page{
     background-color:#f1f1f1;
@@ -7,15 +6,41 @@ page{
     padding-top: 36rpx;
 }
 .titleTxt{
-    font-size: 35rpx;
+    font-size: 26rpx;
+    color: #999999;
+    padding-left:2px;
+    padding-bottom: 24rpx;
+    display: inline-block;
+    width: 85%;
 }
 
+.title2Txt{
+    font-size: 26rpx;
+    color: #999999;
+    padding-left:2px;
+    padding-top: 36rpx;
+    padding-bottom: 16rpx;
+    display: inline-block;
+}
+
+.subTitle{
+    font-size: 26rpx;
+    display: inline-block;
+    background-color: #ffffff;
+    padding: 2rpx 8rpx 2rpx 8rpx;
+}
 .bodyTxt{
     font-size: 33rpx;
     line-height: 50rpx;
     background-color: #ffffff;
+    padding: 8rpx 16rpx 8rpx 16rpx;
 }
 
+.annotationTxt{
+    font-size: 24rpx;
+    background-color: #ffffff;
+    padding: 8rpx 16rpx 8rpx 16rpx;
+}
 
 .confirmBtn{
     display: inline-block;
