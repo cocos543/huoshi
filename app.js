@@ -98,7 +98,7 @@ App({
           console.log(res.data.data);
         }else {
           //暂无背诵内容
-          that.globalData.todayReviewData = null;
+          that.globalData.todayReviewData = [];
         }
         
         typeof cb == "function" && cb(that.globalData.todayReviewData)

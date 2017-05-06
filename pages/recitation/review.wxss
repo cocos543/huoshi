@@ -1,4 +1,3 @@
-/* pages/recitation/review.wxss */
 /* pages/recitation/recite.wxss */
 page{
     background-color:#f1f1f1;
@@ -7,13 +6,31 @@ page{
     padding-top: 36rpx;
 }
 .titleTxt{
-    font-size: 35rpx;
+    font-size: 26rpx;
+    color: #999999;
+    padding-left:20rpx;
+    padding-bottom: 24rpx;
+    display: inline-block;
+    width: 85%;
+}
+
+.subTitle{
+    font-size: 26rpx;
+    display: inline-block;
+    background-color: #ffffff;
+    padding: 2rpx 8rpx 2rpx 8rpx;
+    margin-right: 12rpx;
+    border:1px solid #bbbbbb;
+    border-radius: 2.5px;
 }
 
 .bodyTxt{
     font-size: 33rpx;
     line-height: 50rpx;
     background-color: #ffffff;
+    padding: 8rpx 16rpx 8rpx 16rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
 }
 
 
@@ -23,7 +40,7 @@ page{
     width: 52%;
     color: #555555;
     background-color: #ffffff;
-    margin-top: 176rpx;
+    margin-top: 460rpx;
     font-size: 30rpx;
     line-height: 70rpx;
     height: 70rpx;
