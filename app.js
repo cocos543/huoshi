@@ -27,7 +27,7 @@ App({
                 that.globalData.userKey = res.data.data.token;
                 wx.setStorageSync('globalData', that.globalData);
                 console.log(res.data.data.token);
-
+                that.uploadInvitationCode();
                 wx.getUserInfo({
                   success: function (res) {
                     that.globalData.userInfo = res.userInfo
@@ -181,6 +181,26 @@ App({
     })
   },
 
+  uploadInvitationCode: function(){
+    if (this.globalData.invitationCode) {
+      var token = this.globalData.userKey;
+      var icode = this.globalData.invitationCode;
+      wx.request({
+        url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/invitatioin',
+        data: {
+          token: token,
+          invitation_code:icode,
+        },
+
+        success: function(res) {
+          if (res.data.code == 200) {
+            console.log("uploaded icode~");
+          }
+        }
+      })
+    }
+  },
+
   checkNeedReciting:function(){
     var todayStr = new Date().Format("yyyy-MM-dd");
     if (this.globalData.currentReciteStat && this.globalData.currentReciteStat.lastTime == todayStr) {
@@ -220,6 +240,7 @@ App({
   globalData:{
     userInfo:null,
     userKey :null,
+    invitationCode   :null,//invitation_code
     //用户接口使用
     topicID:null,
 

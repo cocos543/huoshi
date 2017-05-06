@@ -5,11 +5,11 @@
 </view>
 
 <view class="titleTxt">{{titleLabel}} (<span class="bluetxt">{{sourceLabel}}</span>)</view>
-<view class="subTitle" bindtap="clickIgnored">忽略</view>
+<!--<view class="subTitle" wx:if="{{topicData != null}}">忽略</view>-->
+
 <view class="bodyTxt">
         {{handleContent}}
 </view>
-
 
 <view class="lscenter">
     <view class="confirmBtn" bindtap="clickDone">我记住了</view>
