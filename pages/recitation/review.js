@@ -8,6 +8,7 @@ Page({
     handleContent:"加载中...",
     reviewIndex:0,
     sourceLabel:"",
+    showBackButton:true,
   },
 
   onShareAppMessage: function () {
@@ -117,7 +118,7 @@ Page({
     });
   },
 
-  clickBack:function(){
+  clickBack:function() {
     if (this.data.topicData) {
       wx.redirectTo({
         url: '/pages/recitation/recite'
@@ -125,7 +126,8 @@ Page({
     }else if(this.data.reviewData) {
       var rData = this.data.reviewData;
       this.setData({
-        handleContent:rData.content
+        handleContent:rData.content,
+        showBackButton:false,
       });
     }
   },
@@ -162,11 +164,13 @@ Page({
                 })
                 return;
               }
+              var sourceLabel = rData.book_name + " " + rData.chapter_no + ":" + rData.verse_no;
               that.setData({
                 topicData:null,
                 titleLabel:'金句复习',
                 handleContent: handleData(rData.content),
                 reviewData:rData,
+                sourceLabel:sourceLabel,
               });
 
               that.updateProcessBar();

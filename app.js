@@ -77,6 +77,7 @@ App({
         }else if(res.data.code == 451) {
           //背诵完成了,重新选择.
           that.globalData.todayReciteReturnCode = 451;
+          that.globalData.todayReciteData.percent = "100%";
         }
         typeof cb == "function" && cb(that.globalData.todayReciteData)
       }
