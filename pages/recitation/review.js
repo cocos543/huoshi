@@ -12,7 +12,7 @@ Page({
   },
 
   onShareAppMessage: function () {
-    var icode = app.globalData.invitationCode
+    var icode = app.invitationCode
     return {
       title: "我正在背圣经，点我参与",
       path: '/pages/recitation/recitation?icode=' + icode,

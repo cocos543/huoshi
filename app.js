@@ -77,7 +77,9 @@ App({
         }else if(res.data.code == 451) {
           //背诵完成了,重新选择.
           that.globalData.todayReciteReturnCode = 451;
-          that.globalData.todayReciteData.percent = "100%";
+          if (that.globalData.todayReciteData) {
+            that.globalData.todayReciteData.percent = "100%";
+          }
         }
         typeof cb == "function" && cb(that.globalData.todayReciteData)
       }
@@ -183,9 +185,9 @@ App({
   },
 
   uploadInvitationCode: function(){
-    if (this.globalData.invitationCode) {
+    if (this.invitationCode) {
       var token = this.globalData.userKey;
-      var icode = this.globalData.invitationCode;
+      var icode = this.invitationCode;
       wx.request({
         url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/invitatioin',
         data: {
@@ -240,8 +242,7 @@ App({
 
   globalData:{
     userInfo:null,
-    userKey :null,
-    invitationCode   :null,//invitation_code
+    userKey:null,
     //用户接口使用
     topicID:null,
 
@@ -260,6 +261,8 @@ App({
     //复习索引
     reviewIndex:0
   },
+
+  invitationCode:null,//invitation_code
   
 })
 

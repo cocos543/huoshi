@@ -12,7 +12,7 @@ Page({
   onShareAppMessage: function () {
     var day = app.globalData.todayReciteData.recited_days;
     var title = "第"+day+"天背圣经|点击我参与";
-    var icode = app.globalData.invitationCode
+    var icode = app.invitationCode
     return {
       title: title,
       path: '/pages/recitation/recitation?icode=' + icode,

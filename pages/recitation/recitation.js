@@ -10,7 +10,7 @@ Page({
   },
 
   onShareAppMessage: function () {
-    var icode = app.globalData.invitationCode
+    var icode = app.invitationCode
     return {
       title: "我正在背圣经，点击参与",
       path: '/pages/recitation/recitation?icode=' + icode,
@@ -26,7 +26,7 @@ Page({
   onLoad:function(options) {
     // 页面初始化 options为页面跳转所带来的参数
     if (options.icode) {
-      app.globalData.invitationCode = icode;
+      app.invitationCode = icode;
       console.log("icode is " + icode);
       app.saveGlobalData();
     }
