@@ -17,25 +17,28 @@ App({
       success: function (res) {
         if(res.code) {
           if (res.code) {
-            //发起网络请求
-            wx.request({
-              url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/login',
-              data: {
-                code: res.code
-              },
-              success: function(res) {
-                that.globalData.userKey = res.data.data.token;
-                wx.setStorageSync('globalData', that.globalData);
-                console.log(res.data.data.token);
-                that.uploadInvitationCode();
-                wx.getUserInfo({
-                  success: function (res) {
-                    that.globalData.userInfo = res.userInfo
-                    typeof cb == "function" && cb(that.globalData.userInfo)
-                  }
-                })
+            var code = res.code
+            wx.getUserInfo({
+                  success: function (res2) {
+                    that.globalData.userInfo = res2.userInfo
+                    //发起网络请求
+                    wx.request({
+                      url: 'https://www.huoshi.im/bible/frontend/web/index.php/v1/wechat/login',
+                      data: {
+                        code: code,
+                        encrypted_data: res2.encryptedData,
+                        iv: res2.iv
+                      },
+                      success: function(res) {
+                        that.globalData.userKey = res.data.data.token;
+                        wx.setStorageSync('globalData', that.globalData);
+                        console.log(res.data.data.token);
+                        that.uploadInvitationCode();
 
-              }
+                        typeof cb == "function" && cb(that.globalData.userInfo)
+                      }
+                    })
+                  }
             })
           } else {
             console.log('获取用户登录态失败！' + res.errMsg)
